@@ -1,0 +1,188 @@
+<style>
+  /* Importar la fuente Poppins */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+  /* Estilos generales para el contenedor principal */
+  main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    box-sizing: border-box;
+    position: relative;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e2e8f0 100%);
+    font-family: 'Poppins', sans-serif; /* Aplicar la fuente Poppins */
+  }
+
+  /* Ajustes de la imagen del logo */
+  .angular-logo {
+    max-width: 9.2rem;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .angular-logo:hover {
+    transform: scale(1.1);
+  }
+
+  /* Estilos para la sección de contenido */
+  .content {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    background: white;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .content:hover {
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Estilos de títulos */
+  .content h1 {
+    margin-top: 1.75rem;
+    font-size: 2.8rem;
+    color: #1f2937;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  /* Estilos de párrafos */
+  .content p {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: #4b5563;
+    line-height: 1.75rem;
+    text-align: center;
+  }
+
+  /* Estilos para el divisor */
+  .divider {
+    width: 1px;
+    background: var(--red-to-pink-to-purple-vertical-gradient);
+    margin-inline: 1rem;
+    opacity: 0.5;
+  }
+
+  /* Estilos para los botones tipo "pill" */
+  .pill-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --pill-accent: var(--bright-blue);
+    background: color-mix(in srgb, var(--pill-accent) 10%, transparent);
+    color: var(--pill-accent);
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    border-radius: 50px;
+    border: 0;
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .pill:hover {
+    background: color-mix(in srgb, var(--pill-accent) 20%, transparent);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Estilos para cada color específico de las pills */
+  .pill-group .pill:nth-child(6n + 1) {
+    --pill-accent: var(--bright-blue);
+  }
+
+  .pill-group .pill:nth-child(6n + 2) {
+    --pill-accent: var(--french-violet);
+  }
+
+  .pill-group .pill:nth-child(6n + 3),
+  .pill-group .pill:nth-child(6n + 4),
+  .pill-group .pill:nth-child(6n + 5) {
+    --pill-accent: var(--hot-red);
+  }
+
+  .pill-group svg {
+    margin-inline-start: 0.25rem;
+  }
+
+  /* Enlaces sociales */
+  .social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .social-links path {
+    transition: fill 0.3s ease;
+    fill: var(--gray-400);
+  }
+
+  .social-links a:hover svg path {
+    fill: var(--gray-900);
+  }
+
+  /* Adaptación para pantallas pequeñas */
+  @media screen and (max-width: 650px) {
+    .content {
+      flex-direction: column;
+      width: max-content;
+      padding: 1.5rem;
+    }
+
+    .divider {
+      height: 1px;
+      width: 100%;
+      background: var(--red-to-pink-to-purple-horizontal-gradient);
+      margin-block: 1.5rem;
+    }
+  }
+</style>
+
+<!-- Contenido para mostrar el router -->
+<router-outlet />
+
+<!-- Estilos para el botón de volver a inicio -->
+<style>
+  .back-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 2.5rem;
+    text-decoration: none;
+  }
+
+  .back-button:hover {
+    background-color: #2980b9;
+  }
+</style>
+
+<!-- Botón de volver a la página de inicio -->
+<button class="back-button" (click)="goToHome()">Volver a Inicio</button>
